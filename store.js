@@ -1,4 +1,5 @@
 var assert = require("assert");
+var debug = require("debug")("socket.io-store");
 var redisClient;
 var prefix;
 
@@ -39,12 +40,13 @@ function SocketStore (socketId, options) {
 	else {
 		this._prefix = "__socket.io-store";
 	}
+	debug("Socket store created for socket %s with prefix %s", this.socketId, this._prefix);
 }
 
 var defaultCallback = function (err) {
-	// if (err) {
-	// 	// log it?
-	// }
+	if (err) {
+		debug(err);
+	}
 };
 
 SocketStore.prototype._createKey = function () {
