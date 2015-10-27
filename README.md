@@ -1,4 +1,7 @@
 # socket.io-store
+
+[![Circle CI](https://circleci.com/gh/socialtables/socket.io-store.svg?circle-token=b3b7a36a481502eb352cc88d527cdb25e2f27266)](https://circleci.com/gh/socialtables/socket.io-store)
+
 Redis-backed store functionality, like socket.io v0.9
 
 # Usage
