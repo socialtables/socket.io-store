@@ -12,6 +12,39 @@ var redisClient = redis.createClient();
 SocketStore.initialize({ redisClient: redisClient });
 
 io.use(SocketStore.middleware());
+
+io.on("connection", function (socket) {
+
+	socket.on("message", function (from, message) {
+		var data = JSON.stringify({
+			from: from,
+			message: message
+		});
+		socket.set("lastMessage", data, function (err) {
+			if (err) {
+				socket.emit("error", err);
+			}
+		});
+	});
+
+	socket.on("history", function () {
+		socket.get("lastMessage", function (err, data) {
+			if (err) {
+				socket.emit("error", err);
+			}
+			else if (data) {
+				var message = JSON.parse(data);
+				var response = "I last received a message by " + message.from + " saying " + message.message ".";
+				socket.emit("history message", response);
+				socket.del("lastMessage");
+			}
+			else {
+				socket.emit("history message", "I got nothin'.");
+			}
+		});
+	});
+});
+
 ```
 
 - - -
