@@ -1,6 +1,6 @@
 {
   "name": "socket.io-store",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Redis-backed store functionality, like socket.io pre-v1.x",
   "main": "store.js",
   "scripts": {
