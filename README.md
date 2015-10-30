@@ -2,9 +2,13 @@
 
 [![Circle CI](https://circleci.com/gh/socialtables/socket.io-store.svg?circle-token=b3b7a36a481502eb352cc88d527cdb25e2f27266)](https://circleci.com/gh/socialtables/socket.io-store)
 
-Redis-backed store functionality, like socket.io v0.9
+Redis-backed store functionality, like socket.io pre-v1.x
 
 # Usage
+
+Create a [middleware](http://socket.io/docs/server-api/#namespace#use(fn:function):namespace)
+to add store functions `.get()`, `.set()`, `.has()`, `.del()` functions to each
+socket instance.
 
 ```js
 var io = require("socket.io")();
@@ -49,6 +53,10 @@ io.on("connection", function (socket) {
 });
 
 ```
+
+# API
+
+[Generated docs](API.md)
 
 - - -
 

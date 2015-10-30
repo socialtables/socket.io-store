@@ -1,10 +1,11 @@
 {
   "name": "socket.io-store",
   "version": "0.0.0",
-  "description": "Redis-backed store functionality, like socket.io v0.9",
+  "description": "Redis-backed store functionality, like socket.io pre-v1.x",
   "main": "store.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "docs": "jsdoc2md store.js > API.md"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/socialtables/socket.io-store",
   "devDependencies": {
+    "jsdoc-to-markdown": "^1.2.0",
     "mocha": "^2.3.3",
     "redis": "^2.2.5",
     "socket.io": "^1.3.7",
